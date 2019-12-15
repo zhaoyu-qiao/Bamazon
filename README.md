@@ -25,8 +25,8 @@ A node app that allows user to view the products in the current database, and se
 - Use npm to install and reference to mysql, inquirer, in order to link to the database and be able to interact with user input.
 - Compare the inquirer's answer, and information in the database, to determine what to be updated in the database, also whether to end connection, inquire types in use are list and input.
 - A detailed capture is below:
-  [View all products](/images/display1.png)
-  [Choose product id and amount to purchase](/images/choose.png)
-  [Order and exit the app](/images/order-exit.png)
-  [Keep ordering](/images/keep-ordering.png)
+- [View all products](/images/display1.png)
+- [Choose product id and amount to purchase](/images/choose.png)
+- [Order and exit the app](/images/order-exit.png)
+- [Keep ordering](/images/keep-ordering.png)
   [Video]()
