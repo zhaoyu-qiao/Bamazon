@@ -29,4 +29,4 @@ A node app that allows user to view the products in the current database, and se
 - [Choose product id and amount to purchase](/images/choose.png)
 - [Order and exit the app](/images/order-exit.png)
 - [Keep ordering](/images/keep-ordering.png)
-  [Video]()
+- [Video]()
