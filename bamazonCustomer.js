@@ -8,7 +8,7 @@ let connection = mysql.createConnection({
     // Username
     user: "root",
     // Password - this should be saved in .env file
-    password: "putyourpasswordhere",
+    password: "putyourdbpassword",
     // DB name
     database: "bamazon"
 });
@@ -18,24 +18,6 @@ connection.connect(function (err) {
     //afterConnection();
     display();
 });
-
-//function afterConnection() {
-
-// display information of all 10 products
-
-
-// prompt ask two questions:
-// the ID of the product,
-// the amount to buy.
-
-
-// After the user put in the answer, check if the amount <= inventory
-// If no, display message "Insufficient quantity!" => And don't make any change on the DB.
-
-// If yes, update quantity to minus the amount 
-// Once update is finished, show the user the cost.
-//cost();
-//}
 
 // display -ids, names, and prices of products
 function display() {
@@ -89,7 +71,7 @@ function purchase() {
             for (let i = 0; i < results.length; i++) {
                 if (results[i].item_id === parseInt(answers.choice)) {
                     chosenItem = results[i];
-                    console.log(chosenItem);
+                    //console.log(chosenItem);
                 }
             }
             //Check if the inventory is lower than the amount
@@ -115,26 +97,29 @@ function purchase() {
                         console.log("Total cost:", chosenItem.price * answers.amount)
 
                         console.log("Order placed successfully!");
-                        // !!!console.log the amount cost here!!!
-                        // console.log('display:', display)
-                        // console.log('display func', display())
-                        setTimeout(display, 3000);
-                        // display();
-                        //display();
+
                         // add exit function to end the connection.
-                        // function exit(
-                        //     connection.end
-                        // )
+                        inquirer.prompt({
+                            name: "exit",
+                            type: "list",
+                            choices: ["y", "n"],
+                            message: "Have you finished ordering?"
+                        }).then(function (answer) {
+                            if (answer.exit === "y") {
+                                connection.end();
+                            } else {
+                                display();
+
+                            }
+                        })
+
 
                     }
                 );
 
             }
         })
-        // }).catch(err => {
-        //     console.log(err)
-        //     return false
-        // })
+
     })
 
 }
